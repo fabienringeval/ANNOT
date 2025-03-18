@@ -1,0 +1,55 @@
+module.exports = {
+    apps: [{
+      name: 'backendAnnot',
+      script: 'run.py',
+      env: {
+        DATABASE_USERNAME: 'root',
+        DATABASE_PASSWORD: '',
+        DATABASE_HOST: '',
+        DATABASE_NAME: '',
+        DATABASE_PORT: 3306,
+        PORT : 2312,
+        HTTPS: false,
+        DEBUG: true,
+        JWT_SECRET_KEY:''
+      },
+      env_dev: {
+        DATABASE_USERNAME: '',
+        DATABASE_PASSWORD: '',
+        DATABASE_HOST: '',
+        DATABASE_NAME: '',
+        DATABASE_PORT: 3306,
+        PORT : 2312,
+        HTTPS: false,
+        DEBUG: true,
+        JWT_SECRET_KEY:''
+      },
+      env_recette:{
+        DATABASE_USERNAME: '',
+        DATABASE_PASSWORD: '',
+        DATABASE_HOST: '',
+        DATABASE_NAME: '',
+        DATABASE_PORT: 3306,
+        PORT : 2312,
+        HTTPS: false,
+        DEBUG: true,
+        JWT_SECRET_KEY:''
+      },
+      env_production:{
+        DATABASE_USERNAME: '',
+        DATABASE_PASSWORD: '',
+        DATABASE_HOST: '',
+        DATABASE_NAME: '',
+        DATABASE_PORT: 3306,
+        PORT : 2312,
+        HTTPS: false,
+        DEBUG: true,
+        JWT_SECRET_KEY:''
+      },
+      instances: "1",
+      wait_ready: true,
+      autorestart: false,
+      max_restarts: 5,
+      interpreter : "venv/bin/python",
+    }]
+}
