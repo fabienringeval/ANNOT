@@ -1,7 +1,7 @@
 
 # ANNOT' V1.0
 
-Online tool for annotating affective behaviours from videos collected within the THERADIA project, aimed at supporting individuals experiencing cognitive difficulties during digital therapy sessions with a virtual assistant. The annotated data is intended for training the assistant’s emotion recognition and learning system. This tool was initiated by the company Viadialog - https://www.viadialog.com/ - for audio data, and was further extended to process video data by the GETALP team of the Laboratoire d'Informatique de Grenoble - https://lig-getalp.imag.fr/fr/accueil/ -, with the technical support of the company SBT Human Matters - https://www.humansmatter.co/. This tool is partially functionnal - buttons are not yet fully operational and data must be written using a mysql connector.
+Online tool for annotating affective behaviours from videos collected within the THERADIA project, aimed at supporting individuals experiencing cognitive difficulties during digital therapy sessions with a virtual assistant. The annotated data is intended for training the assistant’s emotion recognition and learning system. This tool was initiated by the company Viadialog - https://www.viadialog.com/ - for audio data, and was further extended to process video data by the GETALP team of the Laboratoire d'Informatique de Grenoble - https://lig-getalp.imag.fr/ -, with the technical support of the company SBT Human Matters - https://www.humansmatter.co/. This tool is partially functionnal - buttons are not yet fully operational and data must be written using a mysql connector.
 
 **Table of Contents**
 
