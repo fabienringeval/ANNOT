@@ -1,10 +1,7 @@
 
 # ANNOT'
 
-
-Tools for annotating videos as part of the theradia project.The one which concerns the support of people suffering from cognitive troubles during digital therapy sessions by a virtual assistant.The annotated data will then be used to train the assistant's emotion learning system.
-
-**Table of Contents**
+Tools for annotating videos developed within the Theradia project, aimed at supporting individuals experiencing cognitive difficulties during digital therapy sessions with a virtual assistant. The annotated data is intended for training the assistant’s emotion recognition and learning system.
 
 **Table of Contents**
 
