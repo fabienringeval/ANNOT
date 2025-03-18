@@ -1,0 +1,61 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Nom</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="Labels positifs" value="" formControlName="name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Description</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <textarea matInput placeholder="description" formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Labels</div>
+                <button type="button" mat-button mat-mini-fab color="primary" aria-label="add label" (click)="addLabel()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <div formArrayName="labels">
+                    <div *ngFor="let item of labels.controls; let i = index">
+                        <mat-form-field class="input-full-width">
+                            <input matInput placeholder="Joyeux" value="" formControlName="{{i}}">
+                            <button type="button" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeLabel(i)">
+                              <mat-icon>remove</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div>
+            <button type="button" mat-raised-button color="primary" (click)="abort()">Annuler</button>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>

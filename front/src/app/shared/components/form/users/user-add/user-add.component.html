@@ -1,0 +1,27 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">Selectionner des utilisateurs</div>
+            </div>
+            <div class="col-md-12">
+                <div *ngIf="users$ | async as users">
+                    <mat-form-field class="select-full-width">
+                        <mat-select formControlName="users" multiple>
+                          <mat-option *ngFor="let user of users" [value]="user">
+                            {{user.firstName}} {{user.lastName}}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div>
+            <button mat-raised-button color="primary" (click)="abort()">Annuler</button>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>

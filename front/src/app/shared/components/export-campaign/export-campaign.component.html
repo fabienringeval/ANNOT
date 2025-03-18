@@ -1,0 +1,9 @@
+<div *ngIf="exportInP === false">
+    <app-button [value]="label" (clicked)="export()"></app-button>
+</div>
+
+<div *ngIf="exportInP === true">
+    <div class="row marginT10">
+        <app-loading class="cssLoading"></app-loading>
+    </div>
+</div>

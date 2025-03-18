@@ -1,0 +1,181 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Selectionnez une entreprise</div>
+            </div>
+            <div class="col-md-8">
+                <div *ngIf="companies$ | async as companies">
+                    <mat-form-field class="select-full-width">
+                        <mat-select formControlName="company">
+                          <mat-option *ngFor="let company of companies" [value]="company">
+                            {{company.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Definissez le nom de la campagne</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="Define the name" value="" formControlName="name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Annotation emotionnelle ?</div>
+            </div>
+            <div class="col-md-8">
+                <div class="radioGroup">
+                    <mat-radio-group (change)="radioOnChange($event, 1)" name="emotionalAnalysis" id="emotionalAnalysis" [required] formControlName="emotionalAnalysis">
+                        <mat-radio-button id="emotionalN" color="primary" [value]="0" [checked]="flag === 0"  >NON</mat-radio-button>
+                        <mat-radio-button id="emotionalY" color="primary" [value]="1" [checked]="flag === 1"  >OUI</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showModule.emotionalAnalysis">
+        <div class="formBloc">
+            <div class="title">Dimensions à traiter</div>
+            <div>
+                <div class="row" formArrayName="emotions">
+                    <div class="col-md-3" *ngFor="let emotion of emotions.controls; index as i">
+                        <mat-checkbox color="primary" [formControlName]="i">{{emotionList[i].name}}</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="formBloc">
+            <div class="title">Choisissez une intervalle de temps</div>
+            <div *ngIf="timeIntervals$ | async as intervals">
+                <div class="row">
+                    <mat-radio-group formControlName="timeInterval">
+                        <div class="row">
+                            <div class="col-md-2" *ngFor="let interval of intervals">
+                                <mat-radio-button color="primary" [value]="interval">{{interval.value}}ms ({{interval.label}})</mat-radio-button>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+    
+                </div>
+            </div>
+        </div>
+        <div class="formBloc">
+            <div class="title">Définir l'échelle</div>
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width" (change)="sliderSettingsOnChange($event, 1)">
+                        <mat-label>Valeur Min</mat-label>
+                        <input matInput name="minValue" value="{{sliderValue.min}}" formControlName="minScale">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Valeur Max</mat-label>
+                        <input matInput name="maxValue" value="{{sliderValue.max}}" (change)="sliderSettingsOnChange($event, 2)" formControlName="maxScale">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Pas</mat-label>
+                        <input type="number" matInput name="tickValue"  value="{{sliderValue.tick}}" min="0.01" step="0.01"  (change)="sliderSettingsOnChange($event, 3)" formControlName="tickInterval">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Valeur de début</mat-label>
+                        <input type="number" matInput name="startValue" value="{{sliderValue.start}}"  (change)="sliderSettingsOnChange($event, 4)" formControlName="startValue">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <div class="sliderBloc">
+                    <mat-slider color="primary" thumbLabel min="{{sliderValue.min}}" max="{{sliderValue.max}}" step="{{sliderValue.tick}}" value="{{sliderValue.start}}" width="100%" class="slider-full-width" (change)="sliderOnChange($event)"></mat-slider>
+                </div>
+                <div>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align: left;">{{sliderValue.min}}</td>
+                            <td style="text-align: right;">{{sliderValue.max}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire" style="display: none;"></div>
+
+    <div class="formBloc" style="display: none;">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Audio transcription</div>
+            </div>
+            <div class="col-md-8">
+                <div class="radioGroup">
+                    <mat-radio-group (change)="radioOnChange($event, 2)" name="annotation" id="annotation" [required] formControlName="audioTranscription">
+                        <mat-radio-button id="audioN" color="primary" [value]="0" >NO</mat-radio-button>
+                        <mat-radio-button id="audioY" color="primary" [value]="1">YES</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showModule.annotation">
+        <div class="formBloc">
+            <div class="title">Transcription settings</div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Review %</mat-label>
+                        <input type="number" matInput placeholder="" value="0" min="0" formControlName="reviewPercentage">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Max Review User</mat-label>
+                        <input type="number" matInput placeholder="" value="0" min="0" formControlName="maxReviewUsers">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Categories</div>
+            </div>
+            <div class="col-md-8">
+                <div formArrayName="profiles" *ngIf="profiles$ | async">
+                    <mat-list dense>
+                        <mat-list-item *ngFor="let profile of profiles.controls; index as i">
+                            <mat-slide-toggle [formControlName]="i">{{profileList[i].name}}</mat-slide-toggle>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>

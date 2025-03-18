@@ -1,0 +1,40 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Label</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="label" value="" formControlName="label">
+                        <mat-hint>Spécifier la valeur et l'unité, par exemple 5000 ms peut être défini comme 5 sec</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Value</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput type="number" value="" formControlName="value">
+                        <mat-hint>Valeur en millisecondes.</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div>
+            <button mat-raised-button color="primary" (click)="abort()">Annuler</button>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>

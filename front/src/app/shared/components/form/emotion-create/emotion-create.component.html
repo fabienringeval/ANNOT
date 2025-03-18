@@ -1,0 +1,48 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Nom</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="Definissez le nom" value="" formControlName="name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Description</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <textarea matInput placeholder="Definissez la description" formControlName="description"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-8">
+                <div>
+                    <input class="input-file" (change)="onFileChange($event)" type="file" formControlName="image" />
+                </div>
+            </div>
+        </div>
+    </div>!-->
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div>
+            <button mat-raised-button color="primary" (click)="abort()">Annuler</button>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>

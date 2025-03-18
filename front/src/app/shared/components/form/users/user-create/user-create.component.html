@@ -1,0 +1,86 @@
+<form [formGroup]='form' (ngSubmit)='submitForm()'>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Selectionner une entreprise</div>
+            </div>
+            <div class="col-md-8">
+                <div *ngIf="companies$ | async as companies">
+                    <mat-form-field class="select-full-width">
+                        <mat-select formControlName="company">
+                          <mat-option *ngFor="let company of companies" [value]="company">
+                            {{company.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Nom</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="Dupont" value="" formControlName="firstName">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">Prénom</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="Dupont" value="" formControlName="lastName">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">email</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="dupont@gmail.com" value="" formControlName="email">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="intermediaire"></div>
+    <div class="formBloc">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="title">mot de passe</div>
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <mat-form-field class="input-full-width">
+                        <input matInput placeholder="123" type="password" value="" formControlName="password" >
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="formBloc">
+        <div>
+            <button mat-raised-button color="primary" (click)="abort()">Annuler</button>
+            <button mat-raised-button color="primary">Valider</button>
+        </div>
+    </div>
+</form>
