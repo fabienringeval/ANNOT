@@ -1,0 +1,75 @@
+<div class="divTable">
+  
+    <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+
+    <table mat-table *ngIf="campaigns$ | async as campaigns" [dataSource]="campaigns" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let element" routerLink="/annot/campaigns/{{ element.id }}"> {{element.name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="audioCount">
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let element"> {{element.audioCount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="audioAnnoted">
+          <th mat-header-cell *matHeaderCellDef> Annotée </th>
+          <td mat-cell *matCellDef="let element"> {{element.achievedProcessCount}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="audioToAnnoted">
+          <th mat-header-cell *matHeaderCellDef> A annoter </th>
+          <td mat-cell *matCellDef="let element"> {{element.audioCount - element.achievedProcessCount}} </td>
+        </ng-container>
+
+<!--
+        <ng-container matColumnDef="averageAudioDuration">
+          <th mat-header-cell *matHeaderCellDef> Durée moyenne</th>
+          <td mat-cell *matCellDef="let element"> {{element.averageAudioDuration}} </td>
+        </ng-container>
+-->
+<!--
+        <ng-container matColumnDef="achievedProcessCount">
+            <th mat-header-cell *matHeaderCellDef> Achevés </th>
+            <td mat-cell *matCellDef="let element"> {{element.achievedProcessCount}} </td>
+        </ng-container>
+-->
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="td_annote">
+            <span *ngIf="(element.audioCount - element.achievedProcessCount) > 0">
+              <span class="material-icons cursorLink iconeUse iconeLink" routerLink="/annot/campaigns/{{ element.id }}" title="Annote">
+                textsms
+              </span>
+            </span>
+            <span *ngIf="(element.audioCount - element.achievedProcessCount) == 0">
+              <span class="material-icons iconeUse ">
+                done_all
+              </span>
+            </span>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="actionSuivante">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element" class="td_settings">
+            <span class="material-icons iconeUse cursorLink iconeLink" routerLink="/annot/campaigns/sheets/{{ element.id }}/information" title="Settings">
+              settings_applications
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>

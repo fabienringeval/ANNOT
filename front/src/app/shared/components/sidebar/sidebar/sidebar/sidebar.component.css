@@ -1,0 +1,97 @@
+
+.sidebar{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar .logo{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+    text-align: center;
+}
+
+.logo .typo1,
+.logo .typo2,
+.logo .typo3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.logo .typo1{
+    color: #F5F5F5;
+    font-weight: 400;
+}
+.logo .typo2{
+    color: #F5F5F5;
+    font-weight: 600;
+}
+.logo .typo3{
+    font-weight: 400;
+    color: #F44869;
+}
+
+.menu{
+    font-family: 'Montserrat', sans-serif;
+
+}
+.menu ul{
+    width: 90%;
+}
+
+.menu ul li {
+    margin-bottom: 25px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius:16px;
+    line-height: 32px;
+    color: #F5F5F5;
+}
+
+.menu ul li a {
+    color: #F5F5F5;
+    text-decoration: none;
+}
+
+.menu ul li.active {
+    background-color: #FFFFFF;
+    color: #7C6296;
+}
+
+.menu ul li.active a {
+    color: #7C6296;
+}
+
+
+.menu .menuLi{
+    padding-left: 20px;
+}
+
+.menu .menuLi .icone,
+.menu .menuLi .texte{
+    display: inline;
+    margin-right: 5px;
+}
+
+.menu .menuLi .icone .material-icons-outlined {
+    font-size: 24px;
+    vertical-align: middle;
+
+}
+
+.menu .menuLi .texte {
+    vertical-align: middle;
+}
+
+.sublevel{
+    display: none;
+    padding-left: 20px;
+
+}
+.menu ul li.active  .sublevel{
+    display: block;
+}
+
+.sublevel ul li{
+    color: #7C6296;
+    font-size: 12px;
+    margin-bottom: 0px;
+}

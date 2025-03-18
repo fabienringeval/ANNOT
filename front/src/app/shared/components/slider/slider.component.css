@@ -1,0 +1,84 @@
+.initValue {
+    position: absolute;
+
+}
+
+@media screen and (max-width: 1700px) {
+    .initValue {
+        display: none;
+    }
+}
+
+.graduation {
+    padding: 8px
+}
+
+
+.blocImgSlider{
+    height: 100px;
+    width: 100px;
+}
+
+.typeValence{
+    background-size: cover;
+    background-image: url("/assets/img/valence.png");
+}
+
+.typeArousal{
+    background-size: cover;
+    background-image: url("/assets/img/arousal.png");
+}
+
+.typeCoping{
+    background-size: cover;
+    background-image: url("/assets/img/coping.png");
+}
+
+.typeConduciveness{
+    background-size: cover;
+    background-image: url("/assets/img/conduciveness.png");
+}
+
+.typeNovelty{
+    background-size: cover;
+    background-image: url("/assets/img/novelty.png");
+}
+
+
+.niveau0 {
+    background-position-x: 0;
+    background-position-y: 0;
+    margin: 0 auto;
+}
+
+.niveau1 {
+    background-position-x: -135px;
+    background-position-y: 0;
+    margin: 0 auto;
+}
+.niveau2 {
+    background-position-x: -270px;
+    background-position-y: 0;
+    margin: 0 auto;
+}
+.niveau3 {
+    background-position-x: -410px;
+    background-position-y: 0;
+    margin: 0 auto;
+
+}
+.niveau4 {
+    background-position-x: -550px;
+    background-position-y: 0;
+    margin: 0 auto;
+}
+
+table.tabSliderHelp{
+    width: 100%;;
+}
+
+
+table.tabSliderHelp tr td{
+    width: 20%;
+    text-align: center;
+}

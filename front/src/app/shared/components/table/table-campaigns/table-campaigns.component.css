@@ -1,0 +1,66 @@
+table {
+    width: 100%;
+}
+
+table td{
+    vertical-align: middle;
+}
+
+table th{
+    vertical-align: middle;
+}
+
+.mat-row:hover{
+    background-color: rgba(70, 139, 190, 0.1);
+    color: #468BBE;
+}
+
+.mat-row:hover td{
+    color: #468BBE;
+    opacity: 1;
+}
+
+.divTable{
+    padding: 20px;
+}
+
+.mat-elevation-z8 {
+    box-shadow: none;
+}
+
+.mat-row .mat-column-annotations{
+    color: #468BBE;
+}
+
+.mat-row .mat-column-completed{
+    color: #EDA644;
+}
+
+.mat-row .mat-column-time{
+    color: #727272;
+}
+
+.mat-row .action-view,
+.mat-row .action-delete{
+    padding-right: 5px;;
+}
+.mat-row .action-view{
+    color: #54DE89;
+}
+
+.mat-row .action-delete{
+    color: #F44869;
+}
+
+.iconeUse{
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.td_delete,
+.td_settings,
+.td_annote
+{
+    width: 150px;
+    text-align: center;
+}

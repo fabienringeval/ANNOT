@@ -1,0 +1,67 @@
+<div class="sidebar">
+    <div class="logo">
+        <span class="typo1">An</span>
+        <span class="typo2">not</span>
+        <span class="typo3">'</span>
+        <div class="typo1">Academic</div>
+    </div>
+    <div class="menu" *ngIf="loading == true">
+        <ul>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/annot/campaigns']" routerLinkActive="active" >
+                    <div class="menuLi " routerLinkActive="active" >
+                        <div class="icone"><i class="material-icons-outlined">folder</i></div>
+                        <div class="texte">Campagnes</div>
+                    </div>
+                </a>
+                <div class="sublevel" routerLinkActive="active" *ngIf="roleShow('ROLE_MANAGER')">
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/annot/campaigns/create']" routerLinkActive="active" >Créer une campagne</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li routerLinkActive="active"  *ngIf="roleShow('ROLE_MANAGER')">
+                <a [routerLink]="['/annot/users']" routerLinkActive="active" >
+                    <div class="menuLi " routerLinkActive="active" >
+                        <div class="icone"><i class="material-icons-outlined">person</i></div>
+                        <div class="texte">Utilisateurs</div>
+                    </div>
+                </a>
+            </li>
+            <li routerLinkActive="active"  *ngIf="roleShow('ROLE_MANAGER')">
+                <a [routerLink]="['/annot/settings']" routerLinkActive="active" >
+                    <div class="menuLi " routerLinkActive="active" >
+                        <div class="icone"><i class="material-icons-outlined">build     </i></div>
+                        <div class="texte">Configuration</div>
+                    </div>
+                </a>
+                <div class="sublevel" routerLinkActive="active">
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/annot/settings/companies']" routerLinkActive="active" >Entreprises</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/annot/settings/dimensions']" routerLinkActive="active" >Dimensions</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/annot/settings/categories']" routerLinkActive="active" >Categories</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/annot/settings/time-intervals']" routerLinkActive="active" >Intervalles</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li routerLinkActive="active">
+                <a [routerLink]="['/annot/help']" routerLinkActive="active" >
+                    <div class="menuLi " routerLinkActive="active" >
+                        <div class="icone"><i class="material-icons-outlined">help_outline</i></div>
+                        <div class="texte">Aide</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

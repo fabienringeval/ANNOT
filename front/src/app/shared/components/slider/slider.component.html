@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <div *ngIf="vertical !== undefined">
+            <span class="">100</span>
+        </div>
+        <mat-slider #slider
+                    color="primary"
+                    thumbLabel
+                    [min]="min"
+                    [max]="max"
+                    [step]="step"
+                    [value]="value"
+                    [vertical]="vertical"
+                    [class.sliderVertical] = "vertical !== undefined"
+                    width="100%"
+                    class="slider-full-width"
+                    (change)="sliderOnChange($event)"></mat-slider>
+    <div *ngIf="vertical !== undefined">
+        <span class="">0</span>
+    </div>
+    </div>
+    <div class="col-md-12">
+
+        <div class="graduation" #graduation>
+            <span *ngIf="initPosition" class="initValue" [ngStyle]="{'left': initPosition}">{{initValue}}</span>
+            <span class="float-left">{{min}}</span>
+            <span class="float-right">{{max}}</span>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="nameInfoEmotion">
+        <table class="tabSliderHelp">
+            <tr>
+                <td>
+                    <div class="blocImgSlider type{{sliderImg}} niveau0"></div>
+                </td>
+                <td>
+                    <div class="blocImgSlider type{{sliderImg}} niveau1"></div>
+                </td>
+                <td>
+                    <div class="blocImgSlider type{{sliderImg}} niveau2"></div>
+                </td>
+                <td>
+                    <div class="blocImgSlider type{{sliderImg}} niveau3"></div>
+                </td>
+                <td>
+                    <div class="blocImgSlider type{{sliderImg}} niveau4"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

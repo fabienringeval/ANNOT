@@ -1,0 +1,59 @@
+<div *ngIf="inProgress$ | async">
+  <div class="row marginT10">
+    <app-loading class="cssLoading"></app-loading>
+  </div>
+</div>
+<div *ngIf="!(inProgress$ | async)">
+  <div></div>
+  <div class="divTable">
+    <div class="row marginT10" >
+      <div class="col-md-12">
+          <div class="container">
+              <div class="">
+                  Nombre d'entreprises : {{total$ | async}}
+              </div>
+          </div>
+      </div>
+    </div>
+    <div>
+      <app-paginator [length]="total$ | async"></app-paginator>
+    </div>
+    <div class="tableGen">
+      <table mat-table *ngIf="companies$ | async as companies; else noData" [dataSource]="companies" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <app-delete-company-button [companyId]="element.id" (deleted)="loadCompanyList()"></app-delete-company-button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <ng-template #noData>
+      <div>
+        <div class="alert alert-warning" role="alert">
+          Malheureusement pas d'entreprise
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

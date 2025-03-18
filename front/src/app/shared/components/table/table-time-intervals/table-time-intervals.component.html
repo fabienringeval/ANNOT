@@ -1,0 +1,59 @@
+<div *ngIf="inProgress$ | async">
+  <div class="row marginT10">
+    <app-loading class="cssLoading"></app-loading>
+  </div>
+</div>
+<div *ngIf="!(inProgress$ | async)">
+  <div></div>
+  <div class="divTable">
+    <div class="row marginT10" >
+      <div class="col-md-12">
+          <div class="container">
+              <div class="">
+                  Nombre d'intervalles de temps : {{total$ | async}}
+              </div>
+          </div>
+      </div>
+    </div>
+    <div>
+      <app-paginator [length]="total$ | async"></app-paginator>
+    </div>
+    <div class="tableGen">
+      <table mat-table *ngIf="timeIntervals$ | async as timeIntervals; else noData" [dataSource]="timeIntervals" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="label">
+          <th mat-header-cell *matHeaderCellDef> Label </th>
+          <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef> Valeur </th>
+          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <app-delete-time-interval-button [timeIntervalId]="element.id" (deleted)="loadTimeIntervalList()"></app-delete-time-interval-button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <ng-template #noData>
+      <div>
+        <div class="alert alert-warning" role="alert">
+          Unfortunately no time intervals.
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

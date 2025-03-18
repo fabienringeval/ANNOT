@@ -1,0 +1,1 @@
+export { TableCampaignsModule } from './table-campaigns/table-campaigns.module'
