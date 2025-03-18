@@ -1,0 +1,18 @@
+
+
+
+.notif{
+    border: solid 1px #333;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 30px;
+    border-radius: 50%;
+}
+
+
+.notif .material-icons
+{
+    font-size: 14px;
+}

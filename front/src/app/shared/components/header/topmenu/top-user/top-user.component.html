@@ -1,0 +1,12 @@
+<div class="user" [matMenuTriggerFor]="menu">
+    {{firstName$ | async}} {{lastName$ | async}} 
+    <span class="material-icons">
+        expand_more
+    </span>
+</div>
+<mat-menu #menu="matMenu">
+    <ul>
+        <li mat-menu-item routerLink="/annot/profil" style="display: none">Settings</li>
+        <li mat-menu-item>Logout</li>
+    </ul>
+</mat-menu>

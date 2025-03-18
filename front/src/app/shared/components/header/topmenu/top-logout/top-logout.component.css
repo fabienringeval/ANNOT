@@ -1,0 +1,18 @@
+.logout {
+    border: solid 1px #333;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    margin-top: 12px;
+    line-height: 30px;
+    border-radius: 50%;
+}
+
+.logout {
+    background-color: #042953;
+    color: #F5F5F5;
+}
+
+.logout .material-icons {
+    font-size: 14px;
+}

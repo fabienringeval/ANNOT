@@ -1,0 +1,14 @@
+.menu{
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.menu .item{
+    display: block;
+    float: left;
+    margin:  0 20px;
+    line-height: 50px;
+    font-size: 12px;
+    padding: 0;
+}

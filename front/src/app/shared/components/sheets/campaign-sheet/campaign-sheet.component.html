@@ -1,0 +1,101 @@
+<div class="row" *ngIf="campaign$ | async as campaign">
+    <div class="col-md-12">
+        <div class="title"> Campagne : {{ campaign.name }}</div>
+        <!-- <div class="row marginT10">
+            <div class="col-md-4 title">Entreprise</div>
+            <div class="col-md-8">Nom de l'entreprise</div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-md-4 title">Emotionnal axes to treat</div>
+            <div class="col-md-8">liste des emotions</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 title">Time interval</div>
+            <div class="col-md-8">liste des emotions</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 title">Scale terminals</div>
+            <div class="col-md-8">Scale input</div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-md-4 title">Transcription settings
+            </div>
+            <div class="col-md-8">Settings input</div>
+        </div> -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>Categories</mat-card-title>
+                      <!-- <mat-card-subtitle>Configuration</mat-card-subtitle> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-list *ngIf="profiles$ | async as profiles; else noProfiles">
+                            <mat-list-item *ngFor="let profile of profiles">{{profile.name}}</mat-list-item>
+                        </mat-list>
+                        <ng-template #noProfiles><p>pas de categories</p></ng-template>
+                    </mat-card-content>
+                  </mat-card>
+            </div>
+            <div class="col-md-6">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>Total</mat-card-title>
+                      <!-- <mat-card-subtitle>Configuration</mat-card-subtitle> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row" *ngIf="campaign.audioCount; else noAudioFile">
+                            <div class="col-md-8 title">Nombre de fichier audios</div>
+                            <div class="col-md-4">{{ campaign.audioCount }}</div>
+                            <!-- <div class="col-md-4 title">Durée moyenne par fichier</div>
+                            <div class="col-md-8">{{ campaign.averageAudioDuration }}</div>
+                            <div class="col-md-4 title">Audios traités</div>
+                            <div class="col-md-8">{{ campaign.achievedProcessCount }}</div> -->
+                        </div>
+                        <ng-template #noAudioFile><p>pas de fichier audio</p></ng-template>
+                    </mat-card-content>
+                  </mat-card>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                    <mat-card-title>Analyse emotionnelle</mat-card-title>
+                    <!-- <mat-card-subtitle>Configuration</mat-card-subtitle> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                        <ng-container *ngIf="campaign.emotionalAnalysis; else noEmotionalAnalysis">
+                            <mat-list *ngIf="emotions$ | async as emotions; else noEmotions">
+                                <mat-list-item *ngFor="let emotion of emotions">{{emotion.name}}</mat-list-item>
+                            </mat-list>
+                            <ng-container *ngIf="sliderConfig$ | async as sliderConfig">
+                                <p>min {{sliderConfig.minScale}}</p>
+                                <p>max {{sliderConfig.maxScale}}</p>
+                                <p>start {{sliderConfig.startValue}}</p>
+                                <p>step {{sliderConfig.tickInterval}}</p>
+                            </ng-container>
+                            <p *ngIf="timeInterval$ | async as timeInterval">{{timeInterval.value}}ms ({{timeInterval.label}})</p>
+                        </ng-container>
+                        <ng-template #noEmotionalAnalysis><p>pas d'analyse emotionelle</p></ng-template>
+                        <ng-template #noEmotions><p>pas d'emotions</p></ng-template>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-md-6">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                    <mat-card-title>Audio transcription</mat-card-title>
+                    <!-- <mat-card-subtitle>Configuration</mat-card-subtitle> -->
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p *ngIf="campaign.audioTranscription; else noAudioTranscription">
+                            
+                        </p>
+                        <ng-template #noAudioTranscription><p>pas de transcription audio</p></ng-template>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
