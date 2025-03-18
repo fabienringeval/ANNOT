@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-4">
+                <p>
+                    Pour résumer cette séquence, la personne semble être :
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card p-4">
+                <app-slider
+                        *ngIf="sliderConfig$ | async as sliderConfig"
+                        [min]="sliderConfig.minScale"
+                        [max]="sliderConfig.maxScale"
+                        [step]="sliderConfig.tickInterval"
+                        [initValue]="sliderInitValue"
+                        [emotionToImg]=emotionToImg
+                        [isSummary]="true"
+                        (sliderChange)="updateSliderValue($event)"
+                ></app-slider>
+        </div>
+            <div class="buttonAction mx-auto mt-4">
+                <app-button [value]="submitButtonLabel" (clicked)="validSummary()">submit</app-button>
+            </div>
+    </div>
+    <div *ngIf="emotionToImg == null" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="loaderDataTmp">
+                    <img src="assets/img/loading.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

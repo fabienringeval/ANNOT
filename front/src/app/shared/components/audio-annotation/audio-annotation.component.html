@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-12" *ngIf="readyToAnnotateEmotions()">
+        <h2 >Dimension à annoter : {{ currentAnnotatedEmotion.name }}</h2>
+        <p>{{currentAnnotatedEmotion.description}}</p>
+        <app-emotion-annotator
+            [audio]="audio"
+            [campaignId]="campaignId"
+            [currentEmotion]="currentAnnotatedEmotion"
+            (annotated)="annotated($event)"></app-emotion-annotator>
+    </div>
+    <div class="col-md-12" *ngIf="readyToSummary()">
+        <div>
+            <h2>Resumé</h2>
+            <h3>Dimension à résumer : {{currentAnnotatedEmotion.name}}</h3>
+        </div>
+        <div class="card">
+            <app-audio-annotation-summary
+                    [campaignId]="campaignId"
+                    [currentEmotion]="currentAnnotatedEmotion"
+                    (summarised)="summarised($event)"
+            ></app-audio-annotation-summary>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="readyToProfile()">
+        <div>
+            <h3>Categorie d'émotion</h3>
+        </div>
+        <div class="card" >
+            <app-audio-profiles
+                [audioData]="audio"
+                [campaignId]="campaignId"
+                (empty)="noProfile()"
+                (valid)="profiled($event)"></app-audio-profiles>
+        </div>
+    </div>
+    <div class="col-md-12" *ngIf="readyToSave()">
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <div>Précisez avec vos propres termes, les expressions exprimées par le sujet qui selon vous ne font pas partie de la liste qui vous a été proposée</div>
+                    <div>
+                        <textarea name="comment" id="comment" cols="30" rows="5" class="full" (change) = "doSomething($event)"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 buttonAction" >
+                <div>
+                    <div class="alert alert-success" role="alert">
+                        <p>Votre annotation est terminée</p>
+                        <p>Merci de cliquer sur sauvegarder</p>
+                    </div>
+        
+                    <div *ngIf="saveStart == false ">
+                        <app-button [value]=buttonSave (clicked)="saveData()"></app-button>
+                    </div>
+                    <div *ngIf="saveStart == true ">
+                        <app-button [value]=buttonInP ></app-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

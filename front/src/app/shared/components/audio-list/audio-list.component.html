@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12">
+      <div *ngIf="totalAudios$ | async as totalAudios" >
+        <div class="totalAduio">
+          {{ totalAnnoted }} / {{ totalAudios }}
+        </div>
+      </div>
+
+<!--
+        <app-paginator *ngIf="totalAudios$ | async as totalAudios" [length]="totalAudios"></app-paginator>
+      <mat-list>
+          <mat-list-item *ngFor="let audio of audios$ | async" (click)="select(audio)">
+            <h3 matLine> {{audio.name}} </h3>
+            <p matLine>
+              <span> {{audio.duration}} </span>
+            </p>
+            <mat-icon *ngIf="selectedAudio && audio.id === selectedAudio.id">edit</mat-icon>
+            <mat-icon *ngIf="audio.annotated">done</mat-icon>
+          </mat-list-item>
+      </mat-list>
+-->
+  </div>
+</div>
