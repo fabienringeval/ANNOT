@@ -1,0 +1,15 @@
+--2020-07-20 09:10:52--  https://tf.orange.com/DownloadTransaction.aspx?UploadID=637305779848841041
+Résolution de tf.orange.com (tf.orange.com)… 85.233.205.193
+Connexion à tf.orange.com (tf.orange.com)|85.233.205.193|:443… connecté.
+requête HTTP transmise, en attente de la réponse… 302 Found
+Emplacement : /TransactionBad.aspx [suivant]
+--2020-07-20 09:10:52--  https://tf.orange.com/TransactionBad.aspx
+Réutilisation de la connexion existante à tf.orange.com:443.
+requête HTTP transmise, en attente de la réponse… 200 OK
+Taille : 7043 (6,9K) [text/html]
+Enregistre : «DownloadTransaction.aspx?UploadID=637305779848841041»
+
+             DownloadTran   0%[                                    ]       0  --.-KB/s               DownloadTransaction.aspx? 100%[===================================>]   6,88K  --.-KB/s    ds 0s      
+
+2020-07-20 09:10:52 (361 MB/s) - «DownloadTransaction.aspx?UploadID=637305779848841041» enregistré [7043/7043]
+
