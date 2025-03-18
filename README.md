@@ -6,9 +6,21 @@ Tools for annotating videos as part of the theradia project.The one which concer
 
 **Table of Contents**
 
-[TOC]
+**Table of Contents**
 
-
+- [ANNOT'](#annot)
+- [Backend](#backend)
+  - [Installation](#installation)
+    - [Database](#database)
+  - [Initialisation](#initialisation)
+  - [Run](#run)
+  - [Deployment](#deployment)
+- [Frontend](#frontend)
+  - [Installation](#installation-1)
+  - [Run](#run-1)
+  - [Deployment](#deployment-1)
+- [End](#end)
+  
 ## Backend
 http://localhost:5000/
 
