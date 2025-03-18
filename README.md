@@ -1,7 +1,7 @@
 
 # ANNOT'
 
-Tools for annotating videos developed within the Theradia project, aimed at supporting individuals experiencing cognitive difficulties during digital therapy sessions with a virtual assistant. The annotated data is intended for training the assistant’s emotion recognition and learning system.
+Online tool for annotating affective behaviours from videos developed within the Theradia project, aimed at supporting individuals experiencing cognitive difficulties during digital therapy sessions with a virtual assistant. The annotated data is intended for training the assistant’s emotion recognition and learning system. This tool was initiated by the company Viadialog for audio data, and was further extended to process video data and change the setup used for labels and dimensions. This tool is partially functionnal - buttons are not yet fully operational and data must be written using a mysql connector.
 
 **Table of Contents**
 
