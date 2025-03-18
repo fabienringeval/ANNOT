@@ -1,0 +1,17 @@
+.alert{
+    margin-bottom: 0;
+}
+
+.buttonAction{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.captureInfo{
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0 0 8px;
+}

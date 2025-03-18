@@ -1,0 +1,44 @@
+<div id="homepage" class="page" >
+    <div class="container" *ngIf="campaign$ | async as campaign">
+        <div class="row">
+            <div class="col-md-12">
+                <app-audio-list
+                    [campaignId]="campaignId"
+                    (selected)="selectedAudio($event)"
+                ></app-audio-list>
+            </div>
+
+            <div class="col-md-12" *ngIf="!loading">
+                <div class="row">
+                    <div class="col-md-12" *ngIf="currentAudio && emotions$ | async as emotions; else pasDeData">
+                        <app-audio-annotation
+                            [audio]="currentAudio"
+                            [emotions]="emotions"
+                            [campaignId]="campaignId"
+                            (finished)="finished()"
+                        ></app-audio-annotation>
+                    </div>
+                    <ng-template #pasDeData> 
+                        <div class="col-md-12">
+                            <div class="alert alert-danger" role="alert">
+                                <h1>Attention</h1>
+                                <p>Il n'y a pas ou plus de fichier à annoter</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="col-md-12" *ngIf="loading">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="loadingBloc"> 
+                                <img src="assets/img/loading.gif" alt="Loading">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                  

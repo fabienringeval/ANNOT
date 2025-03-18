@@ -1,0 +1,16 @@
+.menuItem{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menuItem.router-link-active{
+    background-color: #042953;
+    color: #F1F1F1;
+}
+
+.sheetGlobal{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

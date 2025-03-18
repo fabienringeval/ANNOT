@@ -1,0 +1,46 @@
+
+<div id="homepage" class="page" >
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="menuItem" routerLink="information" routerLinkActive="router-link-active" >
+                        Informations
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="menuItem" routerLink="files" routerLinkActive="router-link-active" >
+                        Fichiers
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="menuItem" routerLink="users" routerLinkActive="router-link-active" >
+                        Utilisateurs
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="menuItem" routerLink="export" routerLinkActive="router-link-active" >
+                        Exporter
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="menuItem" routerLink="delete" routerLinkActive="router-link-active" >
+                        Supprimer
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row marginT20"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="container sheetGlobal">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

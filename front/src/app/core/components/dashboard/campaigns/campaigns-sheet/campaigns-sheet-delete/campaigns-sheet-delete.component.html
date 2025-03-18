@@ -1,0 +1,29 @@
+<div class="">
+    <div class="row marginT10">
+        <div class="col-md-12">
+            <div class="container">
+                <div>
+                    <h1>Suppression de la campagne </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div>
+                    <p>
+                        Vous pouvez supprimer la campagne
+                    </p>
+                    <div class="alert alert-danger" role="alert">
+                        Attention : la suppression de la campagne entraînera la suppression de toutes les données.
+                    </div>
+                </div>
+                <div>
+                    <app-delete-campaign-button [campaignId]="campaignId"
+                                                (deleted)="deleted()"></app-delete-campaign-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

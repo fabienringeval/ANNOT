@@ -1,0 +1,20 @@
+<div id="homepage" class="page" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Vue d'ensemble</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    <app-create-user-button (created)="reloadUserList()"></app-create-user-button>
+                    <app-table-users></app-table-users>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

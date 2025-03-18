@@ -1,0 +1,26 @@
+<div *ngIf="campaign$ | async">
+    <div class="row marginT10">
+        <div class="col-md-12">
+            <div class="container">
+                <div >
+                    <h1>Campaign Activity</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div>
+                    <p>
+                        You can activate and deactivate the campaign and view the latest actions.
+                    </p>
+                </div>
+                <div>
+                    <app-button [value]=endButtonValue (clicked)="end()" *ngIf="isActive$ | async"></app-button>
+                    <app-button [value]=startButtonValue (clicked)="start()" *ngIf="!(isActive$ | async)"></app-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div id="homepage" class="page" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Entreprises</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    <app-create-company-button (created)="reloadCompanyList()"></app-create-company-button>
+                    <app-table-companies></app-table-companies>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div id="homepage" class="page" >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h1>Intervalles de temps</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" >
+                    <app-create-time-interval-button (created)="reloadTimeIntervalList()"></app-create-time-interval-button>
+                    <app-table-time-intervals></app-table-time-intervals>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
