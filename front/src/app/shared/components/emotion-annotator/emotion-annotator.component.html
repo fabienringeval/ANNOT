@@ -1,0 +1,58 @@
+<div class="container" *ngIf="emotionToImg">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card p-4">
+                <app-video-player [audio]="audio" (started)="videoStarted()" (ended)="videoEnded()" (loaded)="videoisLoaded()"></app-video-player>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card p-4">
+                <app-slider
+                    *ngIf="sliderConfig$ | async as sliderConfig"
+                    [min]="sliderConfig.minScale"
+                    [max]="sliderConfig.maxScale"
+                    [step]="sliderConfig.tickInterval"
+                    [initValue]="sliderInitValue"
+                    [emotionToImg]="emotionToImg" 
+                    (sliderChange)="updateSliderValue($event)"
+                    ></app-slider>
+                <div class="buttonAction mx-auto mt-4">
+                    <app-button
+                        *ngIf="videoLoaded"
+                        [type]="playButtonType"
+                        [icon]="playButtonIcon"
+                        [color]="playButtonColor"
+                        (clicked)="annotate()"></app-button>
+                   <!-- <app-button
+                            *ngIf="!audioInProgress"
+                            [type]="playButtonType"
+                            [icon]="pauseButtonIcon"
+                            [color]="playButtonColor"
+                            (clicked)="pauseVideo()"></app-button>!-->
+                </div>
+                <app-emotion-graph [annotations]="annotations" *ngIf="showGraph"></app-emotion-graph>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="alert alert-warning captureInfo p-4" role="alert" *ngIf="audioInProgress">
+                Capture in progress
+            </div>
+            <div class="alert alert-success captureInfo p-4" role="alert" *ngIf="audioFinished">
+                Completed capture
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="emotionToImg == null" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="loaderDataTmp">
+                <img src="assets/img/loading.gif" alt="">
+            </div>
+        </div>
+    </div>
+</div>
