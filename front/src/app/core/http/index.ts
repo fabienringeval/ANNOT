@@ -1,0 +1,10 @@
+export { AuthService } from './auth/auth.service';
+export { AudioService } from './audio/audio.service';
+export { CampaignService } from './campaign/campaign.service';
+export { CompanyService } from './company/company.service';
+export { EmotionService } from './emotion/emotion.service';
+export { ProfileService } from './profile/profile.service';
+export { RoleService } from './role/role.service';
+export { TimeIntervalService } from './timeInterval/time-interval.service';
+export { FileService } from './file/file.service';
+export { UserService } from './user/user.service';
