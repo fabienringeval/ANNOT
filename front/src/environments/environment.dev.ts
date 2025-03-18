@@ -3,7 +3,7 @@ export const environment = {
   sso : false,
   service: {
     id:'6qI21Y5lVZnfaeR',
-    key: 'j3WCiLmPU5WMqS3GWfHxcYxXE'
+    key: '*****************'
   },
   api: {
     https: false,
@@ -18,6 +18,6 @@ export const environment = {
     port: 3003
   },
   bugsnag: {
-    apiKey: 'b992c87e9fa1f5d10c848c94ef48b6e8'
+    apiKey: '*********************'
   }
 };
