@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <ng-template *ngFor="let profile of profiles$ | async">
+                <div class="col-sm" *ngIf="profile.name === 'positif'">
+                    <mat-button-toggle-group
+                            [name]="profile.name"
+                            (change)="updateProfile(profile, $event)"
+                            (click)="openSliderDialog()"
+                            aria-label="Font Style">
+                        <ng-container *ngIf="profile.name === 'positif'">
+                            <mat-button-toggle
+                                    [value]="label"
+                                    *ngFor="let label of profile.labels">
+
+                                {{label.label}}</mat-button-toggle>
+                        </ng-container>
+                    </mat-button-toggle-group>
+                </div>
+            </ng-template>
+        </div>
+        <div class="col-md-8">
+            <div class="card p-4">
+                <!--<app-simpleplayer [audio]= "audioData"></app-simpleplayer>-->
+                <app-simplevideo-player [audio]="audioData"></app-simplevideo-player>
+                <!--
+                  <audio controls>
+                  <source src="{{audioData.link}}" type="audio/wav">
+                </audio>
+                -->
+            </div>
+        </div>
+        <div class="col-md-2">
+            <ng-template *ngFor="let profile of profiles$ | async">
+                <mat-button-toggle-group
+                        [name]="profile.name"
+                        (change)="updateProfile(profile, $event)"
+                        (click)="openSliderDialog()"
+                        aria-label="Font Style">
+                    <ng-container *ngIf="profile.name === 'négatif'">
+                        <mat-button-toggle
+                                [value]="label"
+                                *ngFor="let label of profile.labels ">
+                            {{label.label}}</mat-button-toggle>
+                    </ng-container>
+                </mat-button-toggle-group>
+            </ng-template>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="row">
+        <div class="col-md-2">
+            <mat-button-toggle-group multiple>
+                <ng-container *ngFor="let profile of profiles$ | async">
+                    <ng-container *ngIf="profile.name === 'négatif'">
+                        <mat-button-toggle
+                                (click)="hide()"
+                                (mousedown)="onLongPress(profile, label);  onSelected($event.currentTarget)"
+                                [value]="label"
+                                *ngFor="let label of profile.labels | randomOrder:  getUserEmail()">
+                            <span>{{label.label}}</span>
+                            <span></span>
+                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-button-toggle-group>
+        </div>
+        <div class="col-md-8 d-flex justify-content-center">
+                <app-slider
+                        id="t" vertical *ngIf="isVisible"
+                        [min]="0"
+                        [max]="100"
+                        [step]="1"
+                        [initValue]="0"
+                        (sliderChange)="updateSliderValue($event);"
+                        (mouseup)="hide()"
+                ></app-slider>
+        </div>
+        <div class="col-md-2 d-flex justify-content-end">
+            <mat-button-toggle-group multiple>
+                <ng-container *ngFor="let profile of profiles$ | async">
+                    <ng-container *ngIf="profile.name === 'positif'">
+                        <mat-button-toggle
+                                (click)="hide()"
+                                (mousedown)="onLongPress(profile, label); onSelected($event.currentTarget)"
+                                [value]="label"
+                                *ngFor="let label of profile.labels | randomOrder:  this.getUserEmail()">
+                            <span>{{label.label}}</span>
+                            <span></span>
+                        </mat-button-toggle>
+                    </ng-container>
+                </ng-container>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="marginT10">
+                <app-button class="d-flex justify-content-center" [value]="submitButtonLabel" (clicked)="validProfiles()">submit</app-button>
+            </div>
+        </div>
+    </div>
+</div>

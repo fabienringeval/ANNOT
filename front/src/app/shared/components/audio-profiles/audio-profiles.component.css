@@ -1,0 +1,25 @@
+.profilData {
+    margin: 5px 0;
+}
+
+.profilData h4 {
+    margin: 0;
+    line-height: 50px;
+}
+
+mat-button-toggle-group {
+    flex-direction: column;
+}
+
+.col-md-1 {
+    max-width: 6%;
+}
+
+::ng-deep app-slider .graduation {
+    display: none;
+}
+
+
+::ng-deep app-slider .mat-slider-vertical {
+    min-height: 500px;
+}

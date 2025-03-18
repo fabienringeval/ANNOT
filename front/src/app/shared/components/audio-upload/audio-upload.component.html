@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="alignRight">
+        <label class="btn btn-default">
+            <input type="file" multiple (change)="selectFiles($event.target.files)"/>
+        </label>
+        <button class="btn btn-success" (click)="upload()">Upload</button>
+        <button class="btn btn-primary" (click)="abort()">Close</button>
+    </div>
+</div>
+
+<mat-list *ngIf="(inProgress$ | async) || (done$ | async)">
+    <mat-list-item>
+      <mat-icon matListIcon *ngIf="uploading$ | async">sync</mat-icon>
+      <mat-icon matListIcon *ngIf="(associating$ | async) || (done$ | async)">done</mat-icon>
+      <h3 matLine> Uploading </h3>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListIcon *ngIf="associating$ | async">sync</mat-icon>
+      <mat-icon matListIcon *ngIf="done$ | async">done</mat-icon>
+      <h3 matLine> Associating </h3>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListIcon *ngIf="done$ | async">done</mat-icon>
+      <h3 matLine> Done </h3>
+    </mat-list-item>
+</mat-list>

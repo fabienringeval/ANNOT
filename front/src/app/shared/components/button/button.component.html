@@ -1,0 +1,51 @@
+<container-element [ngSwitch]="type">
+    <button
+        [disabled]="false"
+        *ngSwitchCase="'basic'"
+        mat-button [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+    <button
+        *ngSwitchCase="'raised'"
+        mat-raised-button [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+    <button
+        *ngSwitchCase="'stroked'"
+        mat-stroked-button [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+    <button
+        *ngSwitchCase="'flat'"
+        mat-flat-button [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+    <button
+        *ngSwitchCase="'fab'"
+        mat-fab [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+    <button
+        *ngSwitchDefault
+        mat-raised-button [color]="color"
+        (click)="clicked.emit()">
+        <mat-icon *ngIf="icon && !iconRight">{{icon}}</mat-icon>
+        {{value}}
+        <mat-icon *ngIf="icon && iconRight">{{icon}}</mat-icon>
+    </button>
+ </container-element>
