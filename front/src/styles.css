@@ -1,0 +1,193 @@
+
+body{
+    top: 0px;
+    left: 0px;
+	background-color: #F5F5F5;
+	font-family: 'Montserrat', sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; }
+
+/**/
+
+@media (min-width: 1200px){
+	.container, .container-sm, .container-md, .container-lg, .container-xl {
+		max-width: 100%;
+	}
+}
+
+
+/**/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**/
+
+/**/
+
+.input-full-width,
+.select-full-width{
+    width: 100%;
+}
+
+/**/
+
+.marginT10{
+	margin-top: 10px;
+}
+
+.marginT20{
+	margin-top: 20px;
+}
+
+/**/
+.alignLeft{
+	text-align: left;
+}
+.alignRight{
+    text-align: right;
+}
+
+/**/
+.slider-full-width{
+	width: 100%;
+}
+.mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+  }
+
+.mat-slider-thumb {
+    transform: scale(0) !important;
+}
+
+.mat-slider-thumb-label-text {
+	opacity: 1 !important;
+	font-size: 9px;
+}
+
+
+.cssLoading{
+	width: auto;
+	margin: auto;
+}
+
+.cursorLink{
+	cursor: pointer;
+}
+
+.iconeLink{
+	margin: 0 5px;
+}
+
+/**/
+
+
+.tableGen table {
+    width: 100%;
+}
+
+.tableGen table td{
+    vertical-align: middle;
+}
+
+.tableGen table th{
+    vertical-align: middle;
+}
+
+.tableGen .mat-row:hover{
+    background-color: rgba(70, 139, 190, 0.1);
+    color: #468BBE;
+}
+
+.tableGen .mat-row:hover td{
+    color: #468BBE;
+    opacity: 1;
+}
+
+.divTable{
+    padding: 20px;
+}
+
+.tableGen .mat-elevation-z8 {
+    box-shadow: none;
+}
+
+.tableGen .mat-row .mat-column-annotations{
+    color: #468BBE;
+}
+
+.tableGen .mat-row .mat-column-completed{
+    color: #EDA644;
+}
+
+.tableGen .mat-row .mat-column-time{
+    color: #727272;
+}
+
+.tableGen .mat-row .action-view,
+.tableGen .mat-row .action-delete{
+    padding-right: 5px;;
+}
+.tableGen .mat-row .action-view{
+    color: #54DE89;
+}
+
+.tableGen .mat-row .action-delete{
+    color: #F44869;
+}
+
+/** CSS slider */
+.mat-slider-horizontal .mat-slider-wrapper .mat-slider-track-wrapper,
+.mat-slider-horizontal .mat-slider-wrapper .mat-slider-track-wrapper .mat-slider-track-background,
+.mat-slider-horizontal .mat-slider-wrapper .mat-slider-track-wrapper .mat-slider-track-fill {
+    height: 5px;
+}
+
+
+/**/
+
+.loadingBloc{
+	text-align: center;
+}
