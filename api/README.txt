@@ -1,20 +1,23 @@
-1) Installer Python 3.6 Min
-2) Installer pip
-3) De préférence utiliser un environnement Virtuel
-4) pip install -r requirements.txt pour nstaller les dependances
+1.	Install Python 3.6 minimum.
+2.	Install pip.
+3.	Preferably use a virtual environment.
+4.	Run pip install -r requirements.txt to install dependencies.
 
-Utilisation de l'application FLASK :
-Nous utilisons l'application au travers de l'application PM2 qui est un gestionnaire de process (https://pm2.keymetrics.io/)
+Using the FLASK application:
+We manage the application using PM2, a process manager (https://pm2.keymetrics.io/).
 
-le fichier ecosystem.config.js.example est un exemple de fichier de config.
+The file ecosystem.config.js.example is an example configuration file.
 
-le gestionnaire se lance de la manière suivant : pm2 start ecosystem.config.js 
-Pour les options de deploiement, regarde la documentation pm2
+Launch the application manager using:
 
-Initialisation : 
-Une fois le serveur lançé
+pm2 start ecosystem.config.js
 
-URL:Port/v1/install via Postman permettra d'installer les bases de données et de créer le premier utilisateur
-L'installation generera sur le serveur un fichier lock.lock qui empechera l'ecrasement de la db
+For deployment options, refer to the PM2 documentation.
 
-La réponse de l'installeur renvoi le premier compte utilisteurs sous forme d'un json contenant les informations du compte admin@internal.local
+Initialization:
+After starting the server:
+
+Send a request via Postman to URL:Port/v1/install to set up the databases and create the initial user.
+The installation will create a lock.lock file on the server to prevent database overwrites.
+
+The installer’s response returns the first user account details as JSON, including information for the account admin@internal.local.
